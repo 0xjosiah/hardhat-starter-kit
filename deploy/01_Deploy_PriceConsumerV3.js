@@ -12,12 +12,12 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   const chainId = network.config.chainId
 
   let ethUsdPriceFeedAddress
-  if (chainId == 31337) {
-    const EthUsdAggregator = await deployments.get("MockV3Aggregator")
-    ethUsdPriceFeedAddress = EthUsdAggregator.address
-  } else {
+  // if (chainId == 31337) {
+  //   const EthUsdAggregator = await deployments.get("MockV3Aggregator")
+  //   ethUsdPriceFeedAddress = EthUsdAggregator.address
+  // } else {
     ethUsdPriceFeedAddress = networkConfig[chainId]["ethUsdPriceFeed"]
-  }
+  // }
   // Price Feed Address, values can be obtained at https://docs.chain.link/docs/reference-contracts
   // Default one below is ETH/USD contract on Kovan
   const waitBlockConfirmations = developmentChains.includes(network.name)
